@@ -16,6 +16,9 @@ var cors = require("cors"),
 var serve = require("./lib/app"),
     tessera = require("./lib/index");
 
+var interval = 10000; // how often to refresh our measurement
+var lag = require('event-loop-lag')(interval);
+
 debug = debug("tessera");
 
 module.exports = function(opts, callback) {
