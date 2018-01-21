@@ -19,6 +19,12 @@ var serve = require("./lib/app"),
 var interval = 10000; // how often to refresh our measurement
 var lag = require('event-loop-lag')(interval);
 
+function logLag() {
+  console.log('event loop lag is %d', lag());
+}
+
+setInterval(logLag, interval);
+
 debug = debug("tessera");
 
 module.exports = function(opts, callback) {
